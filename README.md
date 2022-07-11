@@ -1,2 +1,2 @@
 # NCNN-MMdeploy
-Summer Vacation
+NCNN-summer vacation project
