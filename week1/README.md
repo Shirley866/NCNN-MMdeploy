@@ -81,3 +81,6 @@ $../build/examples/squeezenet screenshot.png
 最后推理结果证明是正确的,但是精度有所下降。
 
 <img src="https://github.com/Shirley866/NCNN-MMdeploy/blob/main/week1/upload_images/8cebf8062f617ca1199b2dc720f8ca3.png">
+
+### 5. Convolution 2D implementation
+用jupyter notebook写了一个[二维卷积的实现](https://github.com/Shirley866/NCNN-MMdeploy/blob/main/week1/convolution2D.ipynb)
