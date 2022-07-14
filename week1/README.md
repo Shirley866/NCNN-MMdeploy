@@ -38,14 +38,44 @@ $  ../build/examples/squeezenet ../images/screenshot.png
 运行squeezenet后的结果
 
 <img src="https://github.com/Shirley866/NCNN-MMdeploy/blob/main/week1/upload_images/b1ffa44b641aea5a81a9a3ed7af5f6a.png">
-概率最高的三个类别索引为'281,285，282'，该类别编码+1，可根据['synset_words.txt'](https://github.com/Tencent/ncnn/blob/master/examples/synset_words.txt)
-得出对应的类别'281 tabby,tabby cat','285 Egyptian cat' '282 Tiger cat'
+概率最高的三个类别索引为'281,285，282'，该类别编码+1，可根据['synset_words'](https://github.com/Tencent/ncnn/blob/master/examples/synset_words.txt)
+得出对应的类别'281 tabby,tabby cat','285 Egyptian cat' '282 Tiger cat'，可知结果正确
 
-```
 使用Vulkan
+```
 cd ncnn
 mkdir -p build-20220701
 cmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=ON -DNCNN_BUILD_EXAMPLES=ON ..
 make -j$(nproc)
 ```
-### (2)
+推理后的结果与vulkan关闭的结果一致，vulkan的推理没有问题
+<img src="https://github.com/Shirley866/NCNN-MMdeploy/blob/main/week1/upload_images/dc4307773a4a728ae4ce099dd7d603c.png">
+### (2) 量化squeezenet_v1.1 模型
+#### a. optimize model
+因为这一步会出现一些问题，并且是否optimize并不影响之后的量化结果，所以这一步直接跳过了，直接开始create the calibration table file
+
+#### b. Create the calibration table file
+先下载[校准集](https://github.com/nihui/imagenet-sample-images)，把所有图片下载到images文件夹下，
+
+```
+$ find images/ -type f > imagelist.txt
+$ cd build/tools/quantize/ncnn2table imagelist.txt squeezenet_v1.1.table mean=[104,117,123] norm=[1,1,1]  shape=[227,227,3]  pixel=BGR thread=1  method=kl
+```
+
+#### c. Quantize Model
+
+```
+$ cd build/tools/quantize/ncnn2int8 squeezenet_v1.1.param squeezenet_v1.1.bin squeezenet_v1.1-int8.param squeezenet_v1.1-int8.bin
+```
+
+#### 4.Inference
+
+因为在推理的时候，并没有重新编译一个int8模型，所以直接把squeezenet_v1.1-int8.param squeezenet_v1.1-int8.bin 放在int8 文件夹中，并且把名字改为squeezenet_v1.1.param squeezenet_v1.1.bin
+
+```
+$cd int8
+$../build/examples/squeezenet screenshot.png
+```
+最后推理结果证明是正确的
+
+<img src="https://github.com/Shirley866/NCNN-MMdeploy/blob/main/week1/upload_images/8cebf8062f617ca1199b2dc720f8ca3.png">
