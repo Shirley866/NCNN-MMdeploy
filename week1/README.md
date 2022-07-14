@@ -24,7 +24,7 @@ WARNING: lavapipe is not a conformant vulkan implementation, testing use only.
 ```
 ## 3.量化squeezenet_v1.1 模型
 因为我们量化的是squeezenet，可以参考[主要步骤](https://github.com/Tencent/ncnn/blob/master/docs/how-to-use-and-FAQ/quantized-int8-inference.md) 
-### (1) Build NCNN
+### (1) 验证一下NCNN推理结果
 不使用Vulkan，直接用squeezenet对进行测试，把[测试图片](https://raw.githubusercontent.com/nihui/ncnn-android-squeezenet/master/screenshot.png)
 下载到images下,测试squeezenet.
 ```
@@ -36,4 +36,16 @@ $  ../build/examples/squeezenet ../images/screenshot.png
 <img src="https://raw.githubusercontent.com/nihui/ncnn-android-squeezenet/master/screenshot.png" width="25%" height="25%">
 
 运行squeezenet后的结果
+
 <img src="https://github.com/Shirley866/NCNN-MMdeploy/blob/main/week1/upload_images/b1ffa44b641aea5a81a9a3ed7af5f6a.png">
+概率最高的三个类别索引为'281,285，282'，该类别编码+1，可根据[synset_words.txt](https://github.com/Tencent/ncnn/blob/master/examples/synset_words.txt)得出对应的类别
+'281 tabby,tabby cat','285 Egyptian cat' '282 Tiger cat'
+
+```
+使用Vulkan
+cd ncnn
+mkdir -p build-20220701
+cmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=ON -DNCNN_BUILD_EXAMPLES=ON ..
+make -j$(nproc)
+```
+### (2)
