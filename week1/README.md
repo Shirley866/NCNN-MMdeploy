@@ -34,3 +34,6 @@ $  ../build/examples/squeezenet ../images/screenshot.png
 测试结果还是比较准确的
 
 <img src="https://raw.githubusercontent.com/nihui/ncnn-android-squeezenet/master/screenshot.png" width="25%" height="25%">
+
+运行squeezenet后的结果
+<img src="https://github.com/Shirley866/NCNN-MMdeploy/blob/main/week1/upload_images/b1ffa44b641aea5a81a9a3ed7af5f6a.png">
