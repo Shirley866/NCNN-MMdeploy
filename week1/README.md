@@ -26,10 +26,10 @@ WARNING: lavapipe is not a conformant vulkan implementation, testing use only.
 因为我们量化的是squeezenet，可以参考[主要步骤](https://github.com/Tencent/ncnn/blob/master/docs/how-to-use-and-FAQ/quantized-int8-inference.md) 
 ### (1) Build NCNN
 不使用Vulkan，直接用squeezenet对进行测试，把[测试图片](https://raw.githubusercontent.com/nihui/ncnn-android-squeezenet/master/screenshot.png)
-<img src="https://raw.githubusercontent.com/nihui/ncnn-android-squeezenet/master/screenshot.png" width="50%">
 下载到images下,测试squeezenet.
 ```
 $ cd ../examples
 $  ../build/examples/squeezenet ../images/screenshot.png
 ```
 测试结果还是比较准确的
+<img src="https://raw.githubusercontent.com/nihui/ncnn-android-squeezenet/master/screenshot.png">
