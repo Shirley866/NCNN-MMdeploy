@@ -32,4 +32,5 @@ $ cd ../examples
 $  ../build/examples/squeezenet ../images/screenshot.png
 ```
 测试结果还是比较准确的
-<img src="https://raw.githubusercontent.com/nihui/ncnn-android-squeezenet/master/screenshot.png" width="15%" height="15%">
+
+<img src="https://raw.githubusercontent.com/nihui/ncnn-android-squeezenet/master/screenshot.png" width="25%" height="25%">
