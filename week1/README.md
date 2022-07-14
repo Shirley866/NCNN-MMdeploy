@@ -38,7 +38,7 @@ $  ../build/examples/squeezenet ../images/screenshot.png
 运行squeezenet后的结果
 
 <img src="https://github.com/Shirley866/NCNN-MMdeploy/blob/main/week1/upload_images/b1ffa44b641aea5a81a9a3ed7af5f6a.png">
-概率最高的三个类别索引为'281,285，282'，该类别编码+1，可根据['synset_words'](https://github.com/Tencent/ncnn/blob/master/examples/synset_words.txt)
+概率最高的三个类别索引为'281,285，282'，该类别编码+1，可根据[synset_words.txt](https://github.com/Tencent/ncnn/blob/master/examples/synset_words.txt)
 得出对应的类别'281 tabby,tabby cat','285 Egyptian cat' '282 Tiger cat'，可知结果正确
 
 使用Vulkan
