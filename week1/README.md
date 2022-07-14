@@ -32,4 +32,4 @@ $ cd ../examples
 $  ../build/examples/squeezenet ../images/screenshot.png
 ```
 测试结果还是比较准确的
-![alt 测试图片]（https://raw.githubusercontent.com/nihui/ncnn-android-squeezenet/master/screenshot.png"）
+![alt 测试图片](https://raw.githubusercontent.com/nihui/ncnn-android-squeezenet/master/screenshot.png")
