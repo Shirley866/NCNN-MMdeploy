@@ -45,7 +45,8 @@ $  ../build/examples/squeezenet ../images/screenshot.png
 使用Vulkan
 ```
 cd ncnn
-mkdir -p build-20220701
+mkdir -p build
+cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=ON -DNCNN_BUILD_EXAMPLES=ON ..
 make -j$(nproc)
 ```
